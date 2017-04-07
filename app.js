@@ -13,7 +13,6 @@ function getLocationDataFromApi(inputLocation, callback) {              //JSON r
         address: inputLocation,
         key: locationApiKey
     }
-    console.log(inputLocation);
     $.getJSON(GOOGLE_MAPS_URL, query, callback);
 }
 
