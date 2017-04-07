@@ -1,8 +1,8 @@
 var GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
 var state = {};
 var stateTempLocation = {
-    tempLat: 42.360,
-    tempLng: -71.0589
+    lat: 42.360,
+    lng: -71.0589
 };
 
 
