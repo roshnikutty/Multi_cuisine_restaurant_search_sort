@@ -105,7 +105,7 @@ function displayGoogleSearchData(results) {
     var openNow = "";
     var priceLevel = "";
     if (results) {
-        $(".rating-sort").toggleClass("no-show");    //reveal sort button
+        $(".rating-sort").removeClass("no-show");    //reveal sort button
         results.forEach(function (item) {
             console.log(item);
             if (item.opening_hours) {
