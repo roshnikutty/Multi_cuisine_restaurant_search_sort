@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurant Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="responsive_grid.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-row">
+        food24X7
+        <div class = "direction">Your go-to multi-cuisine search solution that you can sort by ratings!</div>
+    </header>
+    <fieldset>
+        <form name="restaurant_form">
+            <div class="choice_col">
+                <label><input class="selection" type="checkbox" value="American" /> American</label><br>
+                <label><input class="selection" type="checkbox" value="Cuban" /> Cuban<label>  <br> 
+                <label><input class="selection" type="checkbox" value="Indian" /> Indian<label> <br>
+                <label><input class="selection" type="checkbox" value="Mexican" /> Mexican<label><br>
+                <label><input class="selection" type="checkbox" value="Spanish" /> Spanish<label>
+            </div>       
+            <div class = "choice_col">
+                <label><input class="selection" type="checkbox" value="Chinese" /> Chinese<label><br>
+                <label><input class="selection" type="checkbox" value="Ethiopian" /> Ethiopian<label><br>
+                <label><input class="selection" type="checkbox" value="Japanese" /> Japanese<label><br>
+                <label><input class="selection" type="checkbox" value="Moroccan" /> Moroccan<label><br>
+                <label><input class="selection" type="checkbox" value="Thai" /> Thai<label>
+            </div>
+            <div class = "locationRadius_col">    
+                <p>
+                    <label for="location">Find near</label>
+                <input type="text" class="location" id="location" placeholder="address or zip code" size="30" />
+                </p>
+                <p>
+                    <label for="radius">Willing to travel</label>
+                    <input type="number" min="0" class="radius" id="radius" placeholder="miles"/>
+                </p>
+            </div>
+            <button class="locationRadius_col listing" type="submit">Get me choices</button>
+            <button class="rating-sort no-show" type="submit">Sort by rating</button>
+        </form>
+        
+        <div class = "gitLogo"><a href="https://github.com/roshnikutty/Multiple_cuisine_restaurant_search" target = "blank">View on GitHub</a></div>
+    </fieldset>
+  
+    <div class="js-results"></div>
+    <div id="map"></div>
+   
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src = "app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDukMh5S7oj9tP0jfnq_7MNUFN8mjKddpA&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>

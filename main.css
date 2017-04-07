@@ -1,0 +1,141 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin:0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top:5px;
+    font-family: 'Droid Sans', sans-serif;
+}
+fieldset {
+    background-color:#FFB462;
+    border-radius: 5px;
+    margin-top: 0px;
+    border: 0px;
+}
+
+.direction, .result-row {
+    color: grey;
+}
+
+.direction {
+    font-size: 20px;
+}
+
+input {
+ margin-left: 15px;
+ margin-right: 15px;
+ padding:8px;
+ border: 0 none;
+}
+
+p > b {
+    color: #FF6D19;
+    margin-right:5px;
+}
+
+.result-row, .header-row {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 7px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 5px;
+}
+
+.open_color { 
+    font-style: italic;
+}
+.closed_color { color: red;}
+
+.dollar, .open_color {
+    color: #E89D6C;
+}
+
+.choice_col {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.locationRadius_col {
+    display: inline-block;
+    margin-left: 30px;
+}
+form {
+    padding-top: 20px;
+}
+
+button {
+    margin-left: 30px;
+    background-color: white;
+    color: #FF6D19;
+    cursor: pointer;
+    padding:8px;
+}
+
+button:hover {
+    color: black;
+}
+
+.header-row {
+    color: #FFB462;
+    font-size: 50px;
+    margin-top: 0px;
+    margin-right:5px;
+    margin-bottom:0px;
+}
+
+.result-row {
+    /*margin-left:30%;
+    margin-right:30%;*/
+    background-color: lightgoldenrodyellow;
+}
+
+.rating-sort{ 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 45%;
+}
+
+.no-show {
+    display:none;
+}
+
+.gitLogo {
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+}
+a {text-decoration: none;}
+
+a:visited, .gitLogo {
+    color: grey;
+}
+
+
+.js-results {
+    width: 49%;
+    margin-right: 0px;
+    display: inline-block;
+}
+
+
+#map {
+    height: 100%;
+    width: 50%;
+    border-radius:5px;
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 10px;
+    margin-top: 5px;
+    padding: 0;
+}
+      
