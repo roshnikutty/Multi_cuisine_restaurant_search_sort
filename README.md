@@ -13,7 +13,7 @@ In this application, I have used the location information (latitude and longitud
 - location of interest (street address or just the zip code)
 - search range in miles
 
-![inpzip](https://github.com/roshnikutty/Multiple_cuisine_restaurant_search/blob/master/images/input_zip.png)
+![inpzip](https://github.com/roshnikutty/Multi_cuisine_restaurant_search_sort/blob/master/images/input_zip.png)
 
 
 ## Application output
@@ -25,7 +25,7 @@ In this application, I have used the location information (latitude and longitud
     >5. Price range in '$'
 
     
-    ![openclose](https://github.com/roshnikutty/Multiple_cuisine_restaurant_search/blob/master/images/open_closed.png)
+    ![openclose](https://github.com/roshnikutty/Multi_cuisine_restaurant_search_sort/blob/master/images/open_closed.png)
     
 - 'Sort by rating' button
     > This functionality replaces your search list with the sort result of the listing in descending order of rating.
