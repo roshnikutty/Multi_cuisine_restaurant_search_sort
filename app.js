@@ -1,8 +1,9 @@
 var GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
-var state = {};
-var stateTempLocation = {
-    lat: 42.360,
-    lng: -71.0589
+var state = {
+    defaultLocation: {
+        lat: 42.360,
+        lng: -71.0589
+    }
 };
 
 
@@ -16,7 +17,7 @@ function getLocationDataFromApi(inputLocation, callback) {              //JSON r
     $.getJSON(GOOGLE_MAPS_URL, query, callback);
 }
 
-function setState(data){
+function setState(data) {
     setLocation(data);
     setSearchParameters();
     initMap();
@@ -27,10 +28,9 @@ function setLocation(data) {    //returns latitude, longitude on input location
         lat: data.results[0].geometry.location.lat,
         lng: data.results[0].geometry.location.lng
     };
-    // initMap();
 }
 
-function setSearchParameters(){
+function setSearchParameters() {
     state.searchObj = getSearchParams();
 }
 
@@ -43,17 +43,14 @@ function initMap() {
     if ((typeof state.lat == 'undefined') && (typeof state.lng == 'undefined')) {
         //If no location is in the form, temp lat and temp lng to init map.
         map = new google.maps.Map(document.getElementById('map'), {
-            center: stateTempLocation,
+            center: state.defaultLocation,
             zoom: 12
         });
         return;
     }
-    
+
     var stateSearchObject = state.searchObj;
-    console.log(state);
     var inputLocation = { lat: state.lat, lng: state.lng };
-    console.log(inputLocation);
-    // console.log(state);
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: inputLocation,
@@ -62,14 +59,12 @@ function initMap() {
 
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
-    console.log(state);
-
+    //this would iterate over each cuisine
     stateSearchObject.inputCusineProp.forEach(function (item) {
-        console.log(item);
         service.textSearch({
-            query: item,                                    //this would iterate over each cuisine
+            query: item,
             location: inputLocation,
-            radius: stateSearchObject.inputRadiusProp,         //this should take input radius
+            radius: stateSearchObject.inputRadiusProp,
             type: 'restaurant',
             rankBy: google.maps.places.RankBy.PROMINENCE
         }, renderResults);
@@ -151,34 +146,19 @@ function displayGoogleSearchData(results) {
 
 //---------------------------------------Input data from form------------------------------
 $(".listing").click(function (event) {
-
     event.preventDefault();
     $('.js-results').empty();
     console.log("clicked");
     var inputLocation = $(".location").val();
     getLocationDataFromApi(inputLocation, setState);   //returns latitude, longitude of input location 
-
-    //var allCuisines = cuisineSelection.join("|") + "|restaurant|food|eat";
-    console.log(state);
-
-    //getDataFromApi(searchObj, inputLocation, displayGoogleSearchData);
 });
 
-// function createState(searchObject) {
-//     var stateSearchObject = searchObject;
-//     return stateSearchObject;
-// }
-function getSearchParams(){
+function getSearchParams() {
     var inputRadius = $(".radius").val() * 1610;            //converting input miles to meters
     var cuisineSelection = [];
     $(".selection:checked").each(function (i) {
         cuisineSelection.push($(this).val());
     });
 
-    var searchObj = {
-        inputCusineProp: cuisineSelection,
-        inputRadiusProp: inputRadius
-    };
-    
-    return searchObj;
+    return { inputCusineProp: cuisineSelection, inputRadiusProp: inputRadius };
 }
