@@ -101,7 +101,6 @@ function displayGoogleSearchData(results) {
     if (results) {
         $(".rating-sort").removeClass("no-show");    //reveal sort button
         results.forEach(function (item) {
-            console.log(item);
             if (item.opening_hours) {
                 if (item.opening_hours.open_now == true) {
                     openNow = "   <span class = 'open_color'>Open now</span>";
@@ -115,7 +114,10 @@ function displayGoogleSearchData(results) {
             if (item.price_level == 3) { priceLevel = "    $$$"; }
             if (item.price_level == 4) { priceLevel = "    $$$$"; }
             var resultRow = "<div class = 'result-row'><p><b>Restaurant  </b> " + item.name + " " + openNow + " " + "</p><p><b>Address  </b> " + item.formatted_address + "</p><p><b>Rating  </b> " + item.rating + "<span class = 'dollar'>" + priceLevel + "</span>" + "</p></div>";
-            resultState.push([item.rating.toString(), resultRow]);
+            if (item.rating) {
+                resultState.push([item.rating.toString(), resultRow]);
+            }
+      
             resultElement = resultElement + resultRow;
         });
     }
@@ -147,7 +149,6 @@ function displayGoogleSearchData(results) {
 $(".listing").click(function (event) {
     event.preventDefault();
     $('.js-results').empty();
-    console.log("clicked");
     var inputLocation = $(".location").val();
     getLocationDataFromApi(inputLocation, setState);   //returns latitude, longitude of input location 
 });
